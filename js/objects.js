@@ -94,7 +94,18 @@ var rameses = {
         setTimeout(function() {
             $("#speech_wrap").fadeOut();
         }, 3000);
-    }
+    }, 
+
+	moveDown: function(amount, callback) {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            $("#rameses_sprite").addClass("running");
+            rameses.move(0, amount);
+        },delay + 200));
+
+        callback();
+    },
 }
 
 // Cursor
