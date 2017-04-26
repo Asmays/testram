@@ -104,7 +104,7 @@ var rameses = {
             rameses.move(0, amount);
         },delay + 200));
 
-        callback();
+        movementDelays.push(callback());
     },
 }
 
