@@ -21,7 +21,7 @@ var rameses = {
 
     setCollisionReaction: function(colCallback) {
     	collisionReaction = colCallback;
-    }
+    },
     move: function(x,y) {
         
         if(isNaN(x) || isNaN(x)) {
