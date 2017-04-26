@@ -16,6 +16,7 @@ var rameses = {
     bX: 52,
     bY: 33,
     distanceLeft: 0,
+    pendingCallback: function(){},
     move: function(x,y) {
         
         if(isNaN(x) || isNaN(x)) {
@@ -82,6 +83,7 @@ var rameses = {
             rameses.direction = "W";
         }
 
+        rameses.pendingCallback = callback;
 
         $("#rameses").animate({
             left: "+=" + (moveX * 50),
@@ -97,6 +99,7 @@ var rameses = {
                 top: "+=" + (moveY * 50),
             }, speed * Math.abs(moveY), function() {
                 rameses.distanceLeft -= thisDistance;
+                rameses.pendingCallback = function(){};
                 callback();
             })
         })
@@ -142,7 +145,30 @@ var rameses = {
         }, 3000);
     }, 
 
-	moveDownCallback: function(amount, callback) {
+     moveRightWithCallback: function(amount, callback) {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.moveWithCB(amount,0,callback);
+        },delay + 200));
+        
+    },
+    moveLeftWithCallback: function(amount, callback) {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.moveWithCB(-1*amount,0,callback);
+        },delay + 200));
+    },
+    moveUpWithCallback: function(amount, callback) {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.moveWithCB(0,-1*amount,callback);
+        },delay + 200));
+    },
+	
+    moveDownWithCallback: function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
