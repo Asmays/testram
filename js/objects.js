@@ -20,7 +20,7 @@ var rameses = {
     collisionReaction: function(){},
 
     setCollisionReaction: function(colCallback) {
-    	collisionReaction = colCallback;
+    	rameses.collisionReaction = colCallback;
     },
     move: function(x,y) {
         
@@ -180,7 +180,7 @@ var rameses = {
             $("#rameses_sprite").addClass("running");
             rameses.moveWithCB(0, amount, callback);
         },delay + 200));
-    },
+    }
 }
 
 // Cursor
