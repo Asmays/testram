@@ -16,9 +16,9 @@ var rameses = {
     bX: 52,
     bY: 33,
     distanceLeft: 0,
-    pendingCallback: function(){},
-    collisionReaction: function(){},
+    collisionReaction,
 
+    pendingCallback: function(){},
     setCollisionReaction: function(colCallback) {
     	rameses.collisionReaction = colCallback;
     },
