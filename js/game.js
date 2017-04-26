@@ -199,7 +199,7 @@ function ramesesCollided() {
         $("#rameses_sprite").empty();
     },1000)
     thump.play();
-    rameses.collisionReaction();
+    ramesesCollisionReaction();
 
     if(rameses.direction == "W") {
         $("#rameses").css( "left", blockToPx(rameses.bX+1) );

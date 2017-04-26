@@ -1,5 +1,7 @@
 var movementDelays = [];
 
+var ramesesCollisionReaction = function(){};
+
 var rameses = {
     name: "Rameses",
     thought: "What a GDTBATH...",
@@ -16,11 +18,10 @@ var rameses = {
     bX: 52,
     bY: 33,
     distanceLeft: 0,
-    collisionReaction: function(){},
 
     pendingCallback: function(){},
     setCollisionReaction: function(colCallback) {
-    	rameses.collisionReaction = colCallback;
+    	ramesesCollisionReaction = colCallback;
     },
     move: function(x,y) {
         
