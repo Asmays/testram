@@ -1,0 +1,19 @@
+var reaction = function() {
+    move1();
+}
+
+var move1 = function() {
+    rameses.moveLeftWithCallback(10, wallAlert);
+}
+
+var wallAlert = function() {
+    alert("I moved away from the wall");
+}
+
+
+
+
+
+
+rameses.setCollisionReaction(reaction);
+rameses.moveRight(15);
